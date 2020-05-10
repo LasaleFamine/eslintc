@@ -31,7 +31,7 @@ Add to your `.eslintrc`
 ```json
 {
   "extends": "@lasalefamine/eslint-config",
-  "parserOption": {
+  "parserOptions": {
     "project": "tsconfig.json"
   }
 }

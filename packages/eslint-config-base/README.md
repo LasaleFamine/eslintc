@@ -29,7 +29,7 @@ Add to your `.eslintrc`
 ```json
 {
   "extends": "@lasalefamine/eslint-config-base",
-  "parserOption": {
+  "parserOptions": {
     "project": "tsconfig.json"
   }
 }
