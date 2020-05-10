@@ -1,0 +1,24 @@
+{
+  "name": "@lasalefamine/eslintc",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "pretest": "lerna exec -- yarn lint",
+    "test": "lerna exec -- yarn test",
+    "release": "lerna publish"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.12.0",
+    "@typescript-eslint/parser": "^2.12.0",
+    "eclint": "^2.8.1",
+    "eslint": "^7.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "jest": "^26.0.1",
+    "lerna": "^3.16.4",
+    "typescript": "^3.7.3"
+  }
+}

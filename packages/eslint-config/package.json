@@ -1,0 +1,43 @@
+{
+  "name": "@lasalefamine/eslint-config",
+  "version": "0.0.0",
+  "description": "ESLint sharable config",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LasaleFamine/eslintc"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "lasalefamine",
+    "javascript",
+    "styleguide",
+    "es2015",
+    "es2016",
+    "es2017",
+    "es2018"
+  ],
+  "author": "LasaleFamine",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "prelint": "eclint check * rules/* test/*",
+    "lint": "eslint --report-unused-disable-directives ."
+  },
+  "peerDependencies": {
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.15.1",
+    "eslint-plugin-react-hooks": "^2.2.0"
+  },
+  "engines": {
+    "node": ">= 6"
+  },
+  "dependencies": {
+    "confusing-browser-globals": "^1.0.9",
+    "@lasalefamine/eslint-config-base": "0.0.0",
+    "object.assign": "^4.1.0",
+    "object.entries": "^1.1.0"
+  }
+}

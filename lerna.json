@@ -1,0 +1,17 @@
+{
+  "version": "0.0.0",
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "__tests__/**"
+      ]
+    }
+  },
+  "npmClient": "yarn",
+  "npmClientArgs": [
+    "--no-lockfile"
+  ],
+  "packages": [
+    "packages/*"
+  ]
+}
