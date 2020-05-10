@@ -1,3 +1,4 @@
+![CI](https://github.com/LasaleFamine/eslintc/workflows/CI/badge.svg)
 [![npm](https://img.shields.io/npm/v/@lasalefamine/eslint-config-base.svg?style=flat)](https://www.npmjs.com/package/@lasalefamine/eslint-config-base)
 
 # @lasalefamine/eslint-config-base
