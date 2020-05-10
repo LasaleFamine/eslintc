@@ -30,12 +30,13 @@ Add to your `.eslintrc`
 ```json
 {
   "extends": "@lasalefamine/eslint-config",
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "tsconfig.eslint.json"
-  },
+  "parserOption": {
+    "project": "tsconfig.json"
+  }
 }
 ```
+
+### tsconfig.eslint.json
 
 Create a new `tsconfig.eslint.json` files for overrides the `include` and `exclude` of your main `tsconfig.json`, so that ESLint will be able to lint everything without complaining:
 ```json
@@ -51,6 +52,16 @@ Create a new `tsconfig.eslint.json` files for overrides the `include` and `exclu
   ]
 }
 
+```
+
+And in your `.eslintrc`:
+```json
+{
+  "extends": "@lasalefamine/eslint-config",
+  "parserOptions": {
+    "project": "tsconfig.eslint.json"
+  },
+}
 ```
 
 ### @lasalefamine/eslint-config/hooks

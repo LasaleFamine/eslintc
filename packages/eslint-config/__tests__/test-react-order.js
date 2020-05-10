@@ -14,7 +14,33 @@ const cli = new CLIEngine({
     // this doesn't matter for tests
     'lines-between-class-members': 0,
     // Avoid rules that need type info, for now
+    // https://github.com/typescript-eslint/typescript-eslint/issues/885#issuecomment-523083616
     '@typescript-eslint/prefer-optional-chain': 0,
+    '@typescript-eslint/no-base-to-string': 0,
+    '@typescript-eslint/no-floating-promises': 0,
+    '@typescript-eslint/no-misused-promises': 0,
+    '@typescript-eslint/await-thenable': 0,
+    '@typescript-eslint/dot-notation': 0,
+    '@typescript-eslint/no-throw-literal': 0,
+    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 0,
+    '@typescript-eslint/no-unnecessary-qualifier': 0,
+    '@typescript-eslint/no-unnecessary-type-arguments': 0,
+    '@typescript-eslint/no-unnecessary-type-assertion': 0,
+    '@typescript-eslint/prefer-includes': 0,
+    '@typescript-eslint/prefer-nullish-coalescing': 0,
+    '@typescript-eslint/prefer-readonly': 0,
+    '@typescript-eslint/prefer-reduce-type-parameter': 0,
+    '@typescript-eslint/prefer-string-starts-ends-with': 0,
+    '@typescript-eslint/promise-function-async': 0,
+    '@typescript-eslint/restrict-plus-operands': 0,
+    '@typescript-eslint/restrict-template-expressions': 0,
+    '@typescript-eslint/return-await': 0,
+    '@typescript-eslint/require-array-sort-compare': 0,
+    '@typescript-eslint/switch-exhaustiveness-check': 0,
+    '@typescript-eslint/prefer-regexp-exec': 0,
+
+    // Avoid for this test
+    '@typescript-eslint/no-empty-function': 0,
   },
 });
 

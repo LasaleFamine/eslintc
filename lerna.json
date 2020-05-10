@@ -11,6 +11,7 @@
   "npmClientArgs": [
     "--no-lockfile"
   ],
+  "useWorkspaces": true,
   "packages": [
     "packages/*"
   ]

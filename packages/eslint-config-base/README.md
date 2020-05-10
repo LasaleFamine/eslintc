@@ -28,12 +28,13 @@ Add to your `.eslintrc`
 ```json
 {
   "extends": "@lasalefamine/eslint-config-base",
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "tsconfig.eslint.json"
-  },
+  "parserOption": {
+    "project": "tsconfig.json"
+  }
 }
 ```
+
+### tsconfig.eslint.json
 
 Create a new `tsconfig.eslint.json` files for overrides the `include` and `exclude` of your main `tsconfig.json`, so that ESLint will be able to lint everything without complaining:
 ```json
@@ -48,7 +49,17 @@ Create a new `tsconfig.eslint.json` files for overrides the `include` and `exclu
     "**/*.tsx"
   ]
 }
+```
 
+And in your `.eslintrc`:
+
+```json
+{
+  "extends": "@lasalefamine/eslint-config-base",
+  "parserOptions": {
+    "project": "tsconfig.eslint.json"
+  }
+}
 ```
 
 ## The `parserOptions.project` issue

@@ -1,10 +1,9 @@
 module.exports = {
+  parser: require.resolve('@typescript-eslint/parser'),
   plugins: ['@typescript-eslint'],
   rules: {
-
     '@typescript-eslint/adjacent-overload-signatures': 'error',
     '@typescript-eslint/array-type': 'error',
-    '@typescript-eslint/await-thenable': 'error',
     '@typescript-eslint/ban-types': [
       'error',
       {
@@ -55,7 +54,6 @@ module.exports = {
       'getters'
     ],
     '@typescript-eslint/default-param-last': 'error',
-    '@typescript-eslint/dot-notation': 'error',
     '@typescript-eslint/consistent-type-assertions': [
       'error',
       {
@@ -143,7 +141,6 @@ module.exports = {
 
     '@typescript-eslint/member-ordering': 'error',
     '@typescript-eslint/method-signature-style': 'error',
-    '@typescript-eslint/no-base-to-string': 'error',
     '@typescript-eslint/no-dupe-class-members': 'error',
     '@typescript-eslint/no-dynamic-delete': 'error',
     '@typescript-eslint/no-empty-function': 'error',
@@ -177,16 +174,25 @@ module.exports = {
         allowWithDecorator: true
       }
     ],
+    '@typescript-eslint/no-for-in-array': 'error',
+    '@typescript-eslint/no-inferrable-types': 'error',
+    '@typescript-eslint/no-invalid-void-type': 'error',
+    '@typescript-eslint/no-misused-new': 'error',
+
+    // TODO: Enable this again when I target ESM output in all my TypeScript projects
+    // '@typescript-eslint/no-namespace': 'error',
+
+    // Type info needed for testing these below
+    '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
+    '@typescript-eslint/await-thenable': 'error',
+    '@typescript-eslint/dot-notation': 'error',
+    '@typescript-eslint/no-base-to-string': 'error',
     '@typescript-eslint/no-floating-promises': [
       'error',
       {
         ignoreIIFE: true
       }
     ],
-    '@typescript-eslint/no-for-in-array': 'error',
-    '@typescript-eslint/no-inferrable-types': 'error',
-    '@typescript-eslint/no-invalid-void-type': 'error',
-    '@typescript-eslint/no-misused-new': 'error',
     '@typescript-eslint/no-misused-promises': [
       'error',
       {
@@ -198,11 +204,36 @@ module.exports = {
         checksVoidReturn: false
       }
     ],
-
-    // TODO: Enable this again when I target ESM output in all my TypeScript projects
-    // '@typescript-eslint/no-namespace': 'error',
-
-    '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
+    '@typescript-eslint/no-throw-literal': 'error',
+    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+    '@typescript-eslint/no-unnecessary-qualifier': 'error',
+    '@typescript-eslint/no-unnecessary-type-arguments': 'error',
+    '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+    '@typescript-eslint/prefer-includes': 'error',
+    '@typescript-eslint/prefer-nullish-coalescing': 'error',
+    '@typescript-eslint/prefer-optional-chain': 'error',
+    '@typescript-eslint/prefer-readonly': 'error',
+    '@typescript-eslint/prefer-reduce-type-parameter': 'error',
+    '@typescript-eslint/prefer-string-starts-ends-with': 'error',
+    '@typescript-eslint/promise-function-async': [
+      'error',
+      {
+        allowAny: true
+      }
+    ],
+    '@typescript-eslint/restrict-plus-operands': 'error',
+    '@typescript-eslint/restrict-template-expressions': [
+      'error',
+      {
+        allowNumber: true,
+        // JS...
+        allowAny: true
+      }
+    ],
+    '@typescript-eslint/return-await': 'error',
+    '@typescript-eslint/require-array-sort-compare': 'error',
+    '@typescript-eslint/switch-exhaustiveness-check': 'error',
+    '@typescript-eslint/prefer-regexp-exec': 'error',
 
     // Disabled until this is resolved:
     // https://github.com/typescript-eslint/typescript-eslint/issues/202
@@ -217,8 +248,6 @@ module.exports = {
         allowDestructuring: true
       }
     ],
-    '@typescript-eslint/no-throw-literal': 'error',
-    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
 
     // TODO: Reconsider enabling this again in 2020.
     // Disable because it has too many false-positives: https://github.com/typescript-eslint/typescript-eslint/search?q=no-unnecessary-condition+is%3Aissue&state=open&type=Issues
@@ -229,10 +258,6 @@ module.exports = {
     //    checkArrayPredicates: true
     //  }
     // ],
-
-    '@typescript-eslint/no-unnecessary-qualifier': 'error',
-    '@typescript-eslint/no-unnecessary-type-arguments': 'error',
-    '@typescript-eslint/no-unnecessary-type-assertion': 'error',
 
     // TODO: Enable these again when we can use ESM natively in Node.js.
     // These rules cause problems with syntax like `import x = require('x');`
@@ -263,11 +288,7 @@ module.exports = {
     '@typescript-eslint/prefer-as-const': 'error',
     '@typescript-eslint/prefer-for-of': 'error',
     '@typescript-eslint/prefer-function-type': 'error',
-    '@typescript-eslint/prefer-includes': 'error',
     '@typescript-eslint/prefer-namespace-keyword': 'error',
-    '@typescript-eslint/prefer-nullish-coalescing': 'error',
-    '@typescript-eslint/prefer-optional-chain': 'error',
-    '@typescript-eslint/prefer-readonly': 'error',
 
     // Disabled until https://github.com/typescript-eslint/typescript-eslint/issues/1758 is fixed. Currently, it's too difficult to accept `Map` as a parameter.
     // '@typescript-eslint/prefer-readonly-parameter-types': [
@@ -277,29 +298,12 @@ module.exports = {
     //  }
     // ],
 
-    '@typescript-eslint/prefer-reduce-type-parameter': 'error',
-    '@typescript-eslint/prefer-string-starts-ends-with': 'error',
     '@typescript-eslint/prefer-ts-expect-error': 'error',
-    '@typescript-eslint/promise-function-async': [
-      'error',
-      {
-        allowAny: true
-      }
-    ],
     quotes: 'off',
     '@typescript-eslint/quotes': [
       'error',
       'single'
     ],
-    '@typescript-eslint/restrict-plus-operands': 'error',
-    '@typescript-eslint/restrict-template-expressions': [
-      'error',
-      {
-        allowNumber: true
-      }
-    ],
-    '@typescript-eslint/return-await': 'error',
-    '@typescript-eslint/require-array-sort-compare': 'error',
 
     // Disabled for now. It's too buggy.
     // It fails to detect when try/catch is used, await inside blocks, etc.
@@ -325,8 +329,6 @@ module.exports = {
     //    allowSafe: true
     //  }
     // ],
-
-    '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@typescript-eslint/triple-slash-reference': [
       'error',
       {
@@ -347,7 +349,6 @@ module.exports = {
     //  }
     // ],
 
-    '@typescript-eslint/prefer-regexp-exec': 'error',
     '@typescript-eslint/unified-signatures': 'error',
 
     // OFF RULES

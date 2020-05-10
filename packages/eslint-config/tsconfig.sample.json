@@ -1,1 +1,8 @@
-{}
+{
+  "compilerOptions": { "strict": true },
+  "include": [
+    "**/*.js",
+    ".eslintrc.js",
+  ],
+  "exclude": ["tsconfig.json"]
+}

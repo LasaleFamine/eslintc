@@ -1,5 +1,4 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.sample.json',
     tsconfigRootDir: __dirname,
@@ -8,4 +7,4 @@ module.exports = {
   rules: {
     'comma-dangle': 0
   }
-}
+};
