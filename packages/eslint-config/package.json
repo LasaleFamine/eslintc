@@ -1,6 +1,6 @@
 {
   "name": "@lasalefamine/eslint-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "ESLint sharable config",
   "main": "index.js",
   "repository": {
@@ -35,8 +35,8 @@
     "node": ">= 6"
   },
   "dependencies": {
+    "@lasalefamine/eslint-config-base": "^0.0.1",
     "confusing-browser-globals": "^1.0.9",
-    "@lasalefamine/eslint-config-base": "0.0.0",
     "object.assign": "^4.1.0",
     "object.entries": "^1.1.0"
   }
