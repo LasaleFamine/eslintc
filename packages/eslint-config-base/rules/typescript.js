@@ -62,7 +62,7 @@ module.exports = {
       }
     ],
     '@typescript-eslint/camelcase': 0,
-    '@typescript-eslint/class-name-casing': 'error',
+    '@typescript-eslint/naming-convention': 'error',
     // Disabled because it's too annoying. Enable it when it's more mature, smarter, and more flexible.
     // https://github.com/typescript-eslint/typescript-eslint/search?q=%22explicit-function-return-type%22&state=open&type=Issues
     // '@typescript-eslint/explicit-function-return-type': [
@@ -100,7 +100,6 @@ module.exports = {
       ignoredNodes: ['JSXElement', 'JSXElement > *', 'JSXAttribute', 'JSXIdentifier', 'JSXNamespacedName', 'JSXMemberExpression', 'JSXSpreadAttribute', 'JSXExpressionContainer', 'JSXOpeningElement', 'JSXClosingElement', 'JSXText', 'JSXEmptyExpression', 'JSXSpreadChild'],
       ignoreComments: false,
     }],
-    '@typescript-eslint/interface-name-prefix': ['error', 'always'],
     '@typescript-eslint/no-array-constructor': 'error',
     '@typescript-eslint/no-namespace': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
