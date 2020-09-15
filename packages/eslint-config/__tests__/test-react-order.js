@@ -41,6 +41,7 @@ const cli = new CLIEngine({
 
     // Avoid for this test
     '@typescript-eslint/no-empty-function': 0,
+    '@typescript-eslint/naming-convention': 0
   },
 });
 
