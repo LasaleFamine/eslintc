@@ -5,9 +5,9 @@ module.exports = {
     './rules/node',
     './rules/errors',
     './rules/es6',
-    './rules/typescript',
     './rules/imports',
     './rules/variables',
+    './rules/typescript',
   ].map(require.resolve),
   parserOptions: {
     ecmaVersion: 2018,

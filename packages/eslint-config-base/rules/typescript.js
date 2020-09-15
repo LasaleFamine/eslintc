@@ -62,7 +62,35 @@ module.exports = {
       }
     ],
     '@typescript-eslint/camelcase': 0,
-    '@typescript-eslint/naming-convention': 'error',
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'default',
+        format: ['camelCase']
+      },
+
+      {
+        selector: 'variable',
+        format: ['camelCase', 'UPPER_CASE', 'PascalCase']
+      },
+      {
+        selector: 'parameter',
+        format: ['camelCase'],
+        leadingUnderscore: 'allow'
+      },
+
+      {
+        selector: 'memberLike',
+        modifiers: ['private'],
+        format: ['camelCase'],
+        leadingUnderscore: 'require'
+      },
+
+      {
+        selector: 'typeLike',
+        format: ['PascalCase']
+      }
+    ],
     // Disabled because it's too annoying. Enable it when it's more mature, smarter, and more flexible.
     // https://github.com/typescript-eslint/typescript-eslint/search?q=%22explicit-function-return-type%22&state=open&type=Issues
     // '@typescript-eslint/explicit-function-return-type': [
@@ -367,5 +395,6 @@ module.exports = {
     'no-useless-catch': 'error',
     // Disabled because of https://github.com/typescript-eslint/typescript-eslint/issues/60
     'no-redeclare': 'off',
+    'no-void': 'off',
   },
 };

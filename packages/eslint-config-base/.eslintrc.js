@@ -5,6 +5,7 @@ module.exports = {
   },
   extends: './index.js',
   rules: {
-    'comma-dangle': 0
+    'comma-dangle': 0,
+    '@typescript-eslint/naming-convention': 0
   }
 };
