@@ -40,8 +40,8 @@
   "dependencies": {
     "@lasalefamine/eslint-config-base": "link:../eslint-config-base",
     "confusing-browser-globals": "^1.0.9",
-    "object.assign": "^4.1.0",
-    "object.entries": "^1.1.0"
+    "object.assign": "^4.1.1",
+    "object.entries": "^1.1.2"
   },
   "gitHead": "cba38fe827537a2bac8222ae2ffb2cf8f765a968"
 }

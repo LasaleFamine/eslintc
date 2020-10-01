@@ -380,6 +380,7 @@ module.exports = {
     // OFF RULES
     camelcase: 'off',
     indent: 'off',
+    'no-shadow': 'off',
     'no-array-constructor': 'off',
     'no-unused-vars': 'off',
     'space-before-function-paren': 'off',
