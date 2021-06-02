@@ -353,7 +353,7 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/require-default-props.md
     'react/require-default-props': ['error', {
       forbidDefaultForRequired: true,
-      ignoreFunctionalComponents: true
+      ignoreFunctionalComponents: true,
     }],
 
     // Forbids using non-exported propTypes

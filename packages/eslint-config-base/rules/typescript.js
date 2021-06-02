@@ -6,8 +6,8 @@ module.exports = {
     '@typescript-eslint/array-type': [
       'error',
       {
-        default: 'array-simple'
-      }
+        default: 'array-simple',
+      },
     ],
     '@typescript-eslint/ban-types': [
       'error',
@@ -16,31 +16,31 @@ module.exports = {
         types: {
           String: {
             message: 'Use `string` instead.',
-            fixWith: 'string'
+            fixWith: 'string',
           },
           Number: {
             message: 'Use `number` instead.',
-            fixWith: 'number'
+            fixWith: 'number',
           },
           Boolean: {
             message: 'Use `boolean` instead.',
-            fixWith: 'boolean'
+            fixWith: 'boolean',
           },
           Symbol: {
             message: 'Use `symbol` instead.',
-            fixWith: 'symbol'
+            fixWith: 'symbol',
           },
           Object: {
             message: 'The `Object` type is mostly the same as `unknown`. You probably want `Record<string, unknown>` instead. See https://github.com/typescript-eslint/typescript-eslint/pull/848',
-            fixWith: 'Record<string, unknown>'
+            fixWith: 'Record<string, unknown>',
           },
           '{}': {
             message: 'The `{}` type is mostly the same as `unknown`. You probably want `Record<string, unknown>` instead.',
-            fixWith: 'Record<string, unknown>'
+            fixWith: 'Record<string, unknown>',
           },
           object: {
             message: 'The `object` type is hard to use. Use `Record<string, unknown>` instead. See: https://github.com/typescript-eslint/typescript-eslint/pull/848',
-            fixWith: 'Record<string, unknown>'
+            fixWith: 'Record<string, unknown>',
           },
           Function: 'Use a specific function type instead, like `() => void`.',
 
@@ -55,13 +55,13 @@ module.exports = {
           '[[[]]]': 'Don\'t use `[[[]]]`. Use `SomeType[][][]` instead.',
           '[[[[]]]]': 'ur drunk 🤡',
           '[[[[[]]]]]': '🦄💥',
-          Omit: 'Prefer the `Except` type in the `type-fest` package instead as it\'s stricter.'
-        }
-      }
+          Omit: 'Prefer the `Except` type in the `type-fest` package instead as it\'s stricter.',
+        },
+      },
     ],
     '@typescript-eslint/class-literal-property-style': [
       'error',
-      'getters'
+      'getters',
     ],
     '@typescript-eslint/consistent-indexed-object-style': 'error',
     'brace-style': 'off',
@@ -69,8 +69,8 @@ module.exports = {
       'error',
       '1tbs',
       {
-        allowSingleLine: false
-      }
+        allowSingleLine: false,
+      },
     ],
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': ['error', {
@@ -85,8 +85,8 @@ module.exports = {
       'error',
       {
         before: false,
-        after: true
-      }
+        after: true,
+      },
     ],
     'default-param-last': 'off',
     '@typescript-eslint/default-param-last': 'error',
@@ -94,15 +94,15 @@ module.exports = {
       'error',
       {
         assertionStyle: 'as',
-        objectLiteralTypeAssertions: 'allow-as-parameter'
-      }
+        objectLiteralTypeAssertions: 'allow-as-parameter',
+      },
     ],
     'func-call-spacing': 'off',
     '@typescript-eslint/func-call-spacing': [
       'error',
-      'never'
+      'never',
     ],
-    // Disabled for now as it causes too many weird TypeScript issues. I'm not sure whether the problems are caused by bugs in TS or problems in my types.
+    // Disabled for now as it causes too many weird TypeScript issues.
     // TODO: Try to re-enable this again in 2022.
     // '@typescript-eslint/method-signature-style': 'error',
 
@@ -113,71 +113,71 @@ module.exports = {
     // - https://github.com/typescript-eslint/typescript-eslint/issues/1484
     // TODO: Prevent `_` prefix on private fields when TypeScript 3.8 is out.
     // '@typescript-eslint/naming-convention': [
-    // 	'error',
-    // 	{
-    // 		selector: 'default',
-    // 		format: [
-    // 			'strictCamelCase'
-    // 		],
-    // 		// We allow double underscope because of GraphQL type names and some React names.
-    // 		leadingUnderscore: 'allowSingleOrDouble',
-    // 		trailingUnderscore: 'allow',
-    // 		// Ignore `{'Retry-After': retryAfter}` type properties.
-    // 		filter: {
-    // 			regex: '[- ]',
-    // 			match: false
-    // 		}
-    // 	},
-    // 	{
-    // 		selector: 'typeLike',
-    // 		format: [
-    // 			'StrictPascalCase'
-    // 		]
-    // 	},
-    // 	{
-    // 		selector: 'variable',
-    // 		types: [
-    // 			'boolean'
-    // 		],
-    // 		format: [
-    // 			'StrictPascalCase'
-    // 		],
-    // 		prefix: [
-    // 			'is',
-    // 			'has',
-    // 			'can',
-    // 			'should',
-    // 			'will',
-    // 			'did'
-    // 		]
-    // 	},
-    // 	{
-    // 		// Interface name should not be prefixed with `I`.
-    // 		selector: 'interface',
-    // 		filter: /^(?!I)[A-Z]/.source,
-    // 		format: [
-    // 			'StrictPascalCase'
-    // 		]
-    // 	},
-    // 	{
-    // 		// Type parameter name should either be `T` or a descriptive name.
-    // 		selector: 'typeParameter',
-    // 		filter: /^T$|^[A-Z][a-zA-Z]+$/.source,
-    // 		format: [
-    // 			'StrictPascalCase'
-    // 		]
-    // 	},
-    // 	// Allow these in non-camel-case when quoted.
-    // 	{
-    // 		selector: [
-    // 			'classProperty',
-    // 			'objectLiteralProperty'
-    // 		],
-    // 		format: null,
-    // 		modifiers: [
-    // 			'requiresQuotes'
-    // 		]
-    // 	}
+    // 'error',
+    // {
+    //   selector: 'default',
+    //   format: [
+    //     'strictCamelCase'
+    //   ],
+    //   We allow double underscope because of GraphQL type names and some React names.
+    //   leadingUnderscore: 'allowSingleOrDouble',
+    //   trailingUnderscore: 'allow',
+    //   Ignore `{'Retry-After': retryAfter}` type properties.
+    //   filter: {
+    //     regex: '[- ]',
+    //     match: false
+    //   }
+    // },
+    // {
+    //   selector: 'typeLike',
+    //   format: [
+    //     'StrictPascalCase'
+    //   ]
+    // },
+    // {
+    //   selector: 'variable',
+    //   types: [
+    //     'boolean'
+    //   ],
+    //   format: [
+    //     'StrictPascalCase'
+    //   ],
+    //   prefix: [
+    //     'is',
+    //     'has',
+    //     'can',
+    //     'should',
+    //     'will',
+    //     'did'
+    //   ]
+    // },
+    // {
+    //   Interface name should not be prefixed with `I`.
+    //   selector: 'interface',
+    //   filter: /^(?!I)[A-Z]/.source,
+    //   format: [
+    //     'StrictPascalCase'
+    //   ]
+    // },
+    // {
+    //   Type parameter name should either be `T` or a descriptive name.
+    //   selector: 'typeParameter',
+    //   filter: /^T$|^[A-Z][a-zA-Z]+$/.source,
+    //   format: [
+    //     'StrictPascalCase'
+    //   ]
+    // },
+    // Allow these in non-camel-case when quoted.
+    // {
+    //   selector: [
+    //     'classProperty',
+    //     'objectLiteralProperty'
+    //   ],
+    //   format: null,
+    //   modifiers: [
+    //     'requiresQuotes'
+    //   ]
+    // }
     // ],
     // Disabled because it's too annoying. Enable it when it's more mature, smarter, and more flexible.
     // https://github.com/typescript-eslint/typescript-eslint/search?q=%22explicit-function-return-type%22&state=open&type=Issues
@@ -246,13 +246,13 @@ module.exports = {
       {
         multiline: {
           delimiter: 'semi',
-          requireLast: true
+          requireLast: true,
         },
         singleline: {
           delimiter: 'semi',
-          requireLast: false
-        }
-      }
+          requireLast: false,
+        },
+      },
     ],
 
     '@typescript-eslint/member-ordering': 'error',
@@ -263,8 +263,8 @@ module.exports = {
     '@typescript-eslint/no-empty-interface': [
       'error',
       {
-        allowSingleExtends: true
-      }
+        allowSingleExtends: true,
+      },
     ],
 
     // TODO: Try to enable this again in 2021.
@@ -287,8 +287,8 @@ module.exports = {
         allowConstructorOnly: false,
         allowEmpty: false,
         allowStaticOnly: false,
-        allowWithDecorator: true
-      }
+        allowWithDecorator: true,
+      },
     ],
     '@typescript-eslint/no-for-in-array': 'error',
     '@typescript-eslint/no-inferrable-types': 'error',
@@ -305,12 +305,6 @@ module.exports = {
     'dot-notation': 'off',
     '@typescript-eslint/dot-notation': 'error',
     '@typescript-eslint/no-base-to-string': 'error',
-    '@typescript-eslint/no-floating-promises': [
-      'error',
-      {
-        ignoreIIFE: true
-      }
-    ],
     '@typescript-eslint/no-misused-promises': [
       'error',
       {
@@ -319,8 +313,8 @@ module.exports = {
         // TODO: I really want this to be `true`, but it makes it inconvenient to use
         // async functions as event handlers... I need to find a good way to handle that.
         // https://github.com/sindresorhus/refined-github/pull/2391#discussion_r318990466
-        checksVoidReturn: false
-      }
+        checksVoidReturn: false,
+      },
     ],
     '@typescript-eslint/no-throw-literal': 'error',
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
@@ -336,8 +330,8 @@ module.exports = {
     '@typescript-eslint/promise-function-async': [
       'error',
       {
-        allowAny: true
-      }
+        allowAny: true,
+      },
     ],
     '@typescript-eslint/restrict-plus-operands': 'error',
     '@typescript-eslint/restrict-template-expressions': [
@@ -345,8 +339,8 @@ module.exports = {
       {
         allowNumber: true,
         // JS...
-        allowAny: true
-      }
+        allowAny: true,
+      },
     ],
     '@typescript-eslint/return-await': 'error',
     '@typescript-eslint/require-array-sort-compare': 'error',
@@ -363,8 +357,8 @@ module.exports = {
     '@typescript-eslint/no-this-alias': [
       'error',
       {
-        allowDestructuring: true
-      }
+        allowDestructuring: true,
+      },
     ],
 
     // TODO: Reconsider enabling this again in 2020.
@@ -393,8 +387,8 @@ module.exports = {
         ignoreRestSiblings: true,
         argsIgnorePattern: /^_/.source,
         caughtErrors: 'all',
-        caughtErrorsIgnorePattern: /^_$/.source
-      }
+        caughtErrorsIgnorePattern: /^_$/.source,
+      },
     ],
 
     // Disabled for now as it's marked as experimental.
@@ -411,15 +405,16 @@ module.exports = {
     'no-void': [
       'error',
       {
-        allowAsStatement: true // To allow `ignoreVoid` in `@typescript-eslint/no-floating-promises`
-      }
+        allowAsStatement: true, // To allow `ignoreVoid` in `@typescript-eslint/no-floating-promises`
+      },
     ],
     '@typescript-eslint/no-floating-promises': [
       'error',
       {
-        ignoreVoid: true, // Prepend a function call with `void` to mark it as not needing to be await'ed, which silences this rule.
-        ignoreIIFE: true
-      }
+        // Prepend a function call with `void` to mark it as not needing to be await'ed, which silences this rule.
+        ignoreVoid: true,
+        ignoreIIFE: true,
+      },
     ],
 
     // Disabled per typescript-eslint recommendation: https://github.com/typescript-eslint/typescript-eslint/blob/e26e43ffba96f6d46198b22f1c8dd5c814db2652/docs/getting-started/linting/FAQ.md#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
@@ -437,7 +432,7 @@ module.exports = {
     quotes: 'off',
     '@typescript-eslint/quotes': [
       'error',
-      'single'
+      'single',
     ],
 
     // Disabled for now. It's too buggy.
@@ -451,8 +446,8 @@ module.exports = {
       {
         anonymous: 'always',
         named: 'never',
-        asyncArrow: 'always'
-      }
+        asyncArrow: 'always',
+      },
     ],
     // TODO: Reconsider enabling it again in 2021.
     // Disabled for now as it's too strict.
@@ -471,7 +466,7 @@ module.exports = {
 
         // Cannot enable this until `@types/node` no longer has the `NodeJS` global
         // types: 'never'
-      }
+      },
     ],
     '@typescript-eslint/type-annotation-spacing': 'error',
 
@@ -487,7 +482,6 @@ module.exports = {
     '@typescript-eslint/unified-signatures': 'error',
 
     // OFF RULES
-    camelcase: 'off',
     indent: 'off',
     'no-shadow': 'off',
     'no-unused-vars': 'off',

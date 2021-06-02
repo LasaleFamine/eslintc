@@ -8,5 +8,5 @@ module.exports = {
       jsx: true,
     },
   },
-  rules: {}
+  rules: {},
 };
