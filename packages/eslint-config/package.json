@@ -27,21 +27,21 @@
     "lint": "eslint --report-unused-disable-directives ."
   },
   "peerDependencies": {
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.15.1",
-    "eslint-plugin-react-hooks": "^2.2.0"
+    "eslint-plugin-jsx-a11y": ">=6.2.3",
+    "eslint-plugin-react": ">=7.15.1",
+    "eslint-plugin-react-hooks": ">=2.2.0"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 12"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
     "@lasalefamine/eslint-config-base": "link:../eslint-config-base",
-    "confusing-browser-globals": "^1.0.9",
-    "object.assign": "^4.1.1",
-    "object.entries": "^1.1.2"
+    "confusing-browser-globals": "^1.0.10",
+    "object.assign": "^4.1.2",
+    "object.entries": "^1.1.4"
   },
   "gitHead": "cba38fe827537a2bac8222ae2ffb2cf8f765a968"
 }

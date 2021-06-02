@@ -3,7 +3,12 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
-    '@typescript-eslint/array-type': 'error',
+    '@typescript-eslint/array-type': [
+			'error',
+			{
+				default: 'array-simple'
+			}
+		],
     '@typescript-eslint/ban-types': [
       'error',
       {
@@ -45,6 +50,11 @@ module.exports = {
           //  fixWith: 'undefined'
           // }
 
+          '[]': 'Don\'t use the empty array type `[]`. It only allows empty arrays. Use `SomeType[]` instead.',
+          '[[]]': 'Don\'t use `[[]]`. It only allows an array with a single element which is an empty array. Use `SomeType[][]` instead.',
+          '[[[]]]': 'Don\'t use `[[[]]]`. Use `SomeType[][][]` instead.',
+          '[[[[]]]]': 'ur drunk 🤡',
+          '[[[[[]]]]]': '🦄💥',
           Omit: 'Prefer the `Except` type in the `type-fest` package instead as it\'s stricter.'
         }
       }
@@ -53,6 +63,32 @@ module.exports = {
       'error',
       'getters'
     ],
+    '@typescript-eslint/consistent-indexed-object-style': 'error',
+    'brace-style': 'off',
+    '@typescript-eslint/brace-style': [
+      'error',
+      '1tbs',
+      {
+        allowSingleLine: false
+      }
+    ],
+    'comma-dangle': 'off',
+    '@typescript-eslint/comma-dangle': ['error', {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'always-multiline',
+    }],
+    'comma-spacing': 'off',
+		'@typescript-eslint/comma-spacing': [
+			'error',
+			{
+				before: false,
+				after: true
+			}
+		],
+    'default-param-last': 'off',
     '@typescript-eslint/default-param-last': 'error',
     '@typescript-eslint/consistent-type-assertions': [
       'error',
@@ -61,35 +97,88 @@ module.exports = {
         objectLiteralTypeAssertions: 'allow-as-parameter'
       }
     ],
-    '@typescript-eslint/camelcase': 0,
-    '@typescript-eslint/naming-convention': [
-      'error',
-      {
-        selector: 'default',
-        format: ['camelCase', 'PascalCase']
-      },
-      {
-        selector: 'variable',
-        format: ['camelCase', 'UPPER_CASE', 'PascalCase']
-      },
-      {
-        selector: 'parameter',
-        format: ['camelCase', 'PascalCase'],
-        leadingUnderscore: 'allow'
-      },
+    'func-call-spacing': 'off',
+		'@typescript-eslint/func-call-spacing': [
+			'error',
+			'never'
+		],
+    // Disabled for now as it causes too many weird TypeScript issues. I'm not sure whether the problems are caused by bugs in TS or problems in my types.
+		// TODO: Try to re-enable this again in 2022.
+		// '@typescript-eslint/method-signature-style': 'error',
 
-      {
-        selector: 'memberLike',
-        modifiers: ['private'],
-        format: ['camelCase'],
-        leadingUnderscore: 'require'
-      },
-
-      {
-        selector: 'typeLike',
-        format: ['PascalCase']
-      }
-    ],
+		// We use `@typescript-eslint/naming-convention` in favor of `camelcase`.
+		camelcase: 'off',
+		// TODO: Enable this again when the following is fixed:
+		// - https://github.com/typescript-eslint/typescript-eslint/issues/1485
+		// - https://github.com/typescript-eslint/typescript-eslint/issues/1484
+		// TODO: Prevent `_` prefix on private fields when TypeScript 3.8 is out.
+		// '@typescript-eslint/naming-convention': [
+		// 	'error',
+		// 	{
+		// 		selector: 'default',
+		// 		format: [
+		// 			'strictCamelCase'
+		// 		],
+		// 		// We allow double underscope because of GraphQL type names and some React names.
+		// 		leadingUnderscore: 'allowSingleOrDouble',
+		// 		trailingUnderscore: 'allow',
+		// 		// Ignore `{'Retry-After': retryAfter}` type properties.
+		// 		filter: {
+		// 			regex: '[- ]',
+		// 			match: false
+		// 		}
+		// 	},
+		// 	{
+		// 		selector: 'typeLike',
+		// 		format: [
+		// 			'StrictPascalCase'
+		// 		]
+		// 	},
+		// 	{
+		// 		selector: 'variable',
+		// 		types: [
+		// 			'boolean'
+		// 		],
+		// 		format: [
+		// 			'StrictPascalCase'
+		// 		],
+		// 		prefix: [
+		// 			'is',
+		// 			'has',
+		// 			'can',
+		// 			'should',
+		// 			'will',
+		// 			'did'
+		// 		]
+		// 	},
+		// 	{
+		// 		// Interface name should not be prefixed with `I`.
+		// 		selector: 'interface',
+		// 		filter: /^(?!I)[A-Z]/.source,
+		// 		format: [
+		// 			'StrictPascalCase'
+		// 		]
+		// 	},
+		// 	{
+		// 		// Type parameter name should either be `T` or a descriptive name.
+		// 		selector: 'typeParameter',
+		// 		filter: /^T$|^[A-Z][a-zA-Z]+$/.source,
+		// 		format: [
+		// 			'StrictPascalCase'
+		// 		]
+		// 	},
+		// 	// Allow these in non-camel-case when quoted.
+		// 	{
+		// 		selector: [
+		// 			'classProperty',
+		// 			'objectLiteralProperty'
+		// 		],
+		// 		format: null,
+		// 		modifiers: [
+		// 			'requiresQuotes'
+		// 		]
+		// 	}
+		// ],
     // Disabled because it's too annoying. Enable it when it's more mature, smarter, and more flexible.
     // https://github.com/typescript-eslint/typescript-eslint/search?q=%22explicit-function-return-type%22&state=open&type=Issues
     // '@typescript-eslint/explicit-function-return-type': [
@@ -127,6 +216,7 @@ module.exports = {
       ignoredNodes: ['JSXElement', 'JSXElement > *', 'JSXAttribute', 'JSXIdentifier', 'JSXNamespacedName', 'JSXMemberExpression', 'JSXSpreadAttribute', 'JSXExpressionContainer', 'JSXOpeningElement', 'JSXClosingElement', 'JSXText', 'JSXEmptyExpression', 'JSXSpreadChild'],
       ignoreComments: false,
     }],
+    'no-array-constructor': 'off',
     '@typescript-eslint/no-array-constructor': 'error',
     '@typescript-eslint/no-namespace': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
@@ -210,7 +300,9 @@ module.exports = {
 
     // Type info needed for testing these below
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
+    '@typescript-eslint/ban-tslint-comment': 'error',
     '@typescript-eslint/await-thenable': 'error',
+    'dot-notation': 'off',
     '@typescript-eslint/dot-notation': 'error',
     '@typescript-eslint/no-base-to-string': 'error',
     '@typescript-eslint/no-floating-promises': [
@@ -316,6 +408,23 @@ module.exports = {
     '@typescript-eslint/prefer-function-type': 'error',
     '@typescript-eslint/prefer-namespace-keyword': 'error',
 
+    'no-void': [
+			'error',
+			{
+				allowAsStatement: true // To allow `ignoreVoid` in `@typescript-eslint/no-floating-promises`
+			}
+		],
+		'@typescript-eslint/no-floating-promises': [
+			'error',
+			{
+				ignoreVoid: true, // Prepend a function call with `void` to mark it as not needing to be await'ed, which silences this rule.
+				ignoreIIFE: true
+			}
+		],
+
+    // Disabled per typescript-eslint recommendation: https://github.com/typescript-eslint/typescript-eslint/blob/e26e43ffba96f6d46198b22f1c8dd5c814db2652/docs/getting-started/linting/FAQ.md#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+		'no-undef': 'off',
+
     // Disabled until https://github.com/typescript-eslint/typescript-eslint/issues/1758 is fixed. Currently, it's too difficult to accept `Map` as a parameter.
     // '@typescript-eslint/prefer-readonly-parameter-types': [
     //  'error',
@@ -381,12 +490,9 @@ module.exports = {
     camelcase: 'off',
     indent: 'off',
     'no-shadow': 'off',
-    'no-array-constructor': 'off',
     'no-unused-vars': 'off',
     'space-before-function-paren': 'off',
     'no-use-before-define': 'off',
-    'default-param-last': 'off',
-    'dot-notation': 'off',
     'no-dupe-class-members': 'off',
     'no-empty-function': 'off',
     'no-throw-literal': 'off',
@@ -395,6 +501,5 @@ module.exports = {
     'no-useless-catch': 'error',
     // Disabled because of https://github.com/typescript-eslint/typescript-eslint/issues/60
     'no-redeclare': 'off',
-    'no-void': 'off',
   },
 };
