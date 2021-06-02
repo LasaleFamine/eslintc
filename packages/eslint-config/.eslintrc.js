@@ -4,7 +4,4 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   extends: './index.js',
-  rules: {
-    'comma-dangle': 0
-  }
 };

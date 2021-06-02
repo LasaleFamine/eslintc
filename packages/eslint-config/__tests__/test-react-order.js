@@ -41,7 +41,7 @@ const cli = new CLIEngine({
 
     // Avoid for this test
     '@typescript-eslint/no-empty-function': 0,
-    '@typescript-eslint/naming-convention': 0
+    '@typescript-eslint/naming-convention': 0,
   },
 });
 
@@ -77,7 +77,9 @@ describe('validate react prop order', () => {
   setBar() {}
   someMethod() {}
   renderDogs() {}
-  render() { return <div />; }`));
+  render() {
+    return <div />;
+  }`));
 
     expect(result.warningCount).not.toBeTruthy();
     expect(result.messages).toStrictEqual([]);
@@ -92,7 +94,9 @@ describe('validate react prop order', () => {
   getFoo() {}
   setBar() {}
   renderDogs() {}
-  render() { return <div />; }`));
+  render() {
+    return <div />;
+  }`));
 
     expect(result.errorCount).toBeTruthy();
     expect(result.messages.map(msg => msg.ruleId)).toStrictEqual(['react/sort-comp']);
@@ -106,7 +110,9 @@ describe('validate react prop order', () => {
   getFoo() {}
   setBar() {}
   renderDogs() {}
-  render() { return <div />; }`));
+  render() {
+    return <div />;
+  }`));
 
     expect(result.errorCount).toBeTruthy();
     expect(result.messages.map(msg => msg.ruleId)).toStrictEqual(['react/sort-comp']);

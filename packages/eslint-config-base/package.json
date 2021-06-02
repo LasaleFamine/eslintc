@@ -27,22 +27,22 @@
     "lint": "eslint --report-unused-disable-directives ."
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.12.0",
-    "@typescript-eslint/parser": "^2.12.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.19.1",
-    "typescript": "^3.7.3"
+    "@typescript-eslint/eslint-plugin": ">=4.22.1",
+    "@typescript-eslint/parser": ">=4.22.1",
+    "eslint": ">=7.26.0",
+    "eslint-plugin-import": ">=2.19.1",
+    "typescript": ">=4"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 12"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "confusing-browser-globals": "^1.0.9",
-    "object.assign": "^4.1.1",
-    "object.entries": "^1.1.2"
+    "confusing-browser-globals": "^1.0.10",
+    "object.assign": "^4.1.2",
+    "object.entries": "^1.1.4"
   },
   "gitHead": "cba38fe827537a2bac8222ae2ffb2cf8f765a968"
 }
