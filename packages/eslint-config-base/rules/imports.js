@@ -1,6 +1,7 @@
 module.exports = {
   plugins: [
     'import',
+    'simple-import-sort',
   ],
 
   settings: {
@@ -264,11 +265,15 @@ module.exports = {
 
     // Reports modules without any exports, or with unused exports
     // https://github.com/benmosher/eslint-plugin-import/blob/f63dd261809de6883b13b6b5b960e6d7f42a7813/docs/rules/no-unused-modules.md
-    // TODO: enable, semver-major
     'import/no-unused-modules': ['off', {
       ignoreExports: [],
       missingExports: true,
       unusedExports: true,
     }],
+
+    // Sort order plugin
+    // https://github.com/lydell/eslint-plugin-simple-import-sort
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
 };

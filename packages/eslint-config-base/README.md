@@ -5,14 +5,14 @@
 
 > Base config for ESlint - no React
 
-Our default export contains all of our ESLint rules, including ECMAScript 6+. It requires `eslint`, `eslint-plugin-import`, `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser` and `typescript`
+Our default export contains all of our ESLint rules, including ECMAScript 6+. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-simple-import-sort`, `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser` and `typescript`
 
 ## Install
 
 First install the dependencies:
 
 ```
-yarn add --dev eslint eslint-plugin-import @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
+yarn add --dev eslint eslint-plugin-import eslint-plugin-simple-import-sort @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
 ```
 
 Then add our config:

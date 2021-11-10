@@ -31,6 +31,7 @@
     "@typescript-eslint/parser": ">=4.22.1",
     "eslint": ">=7.26.0",
     "eslint-plugin-import": ">=2.19.1",
+    "eslint-plugin-simple-import-sort": ">=7.0.0",
     "typescript": ">=4"
   },
   "engines": {
