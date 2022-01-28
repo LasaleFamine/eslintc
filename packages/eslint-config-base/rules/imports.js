@@ -97,6 +97,7 @@ module.exports = {
         '**/next.config.js',
         '**/postcss.config.js',
         '**/gatsby-node.js',
+        '**/*.stories.{jsx,tsx,js,ts}',
       ],
       packageDir: ['./'],
       optionalDependencies: false,

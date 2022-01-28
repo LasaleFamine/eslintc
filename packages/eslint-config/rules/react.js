@@ -188,11 +188,7 @@ module.exports = {
 
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
-    'react/prop-types': ['warn', {
-      ignore: [],
-      customValidators: [],
-      skipUndeclared: false,
-    }],
+    'react/prop-types': 'off',
 
     // Disable needed use of React on JSX files (React >= 17.0)
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
