@@ -90,13 +90,13 @@ module.exports = {
       },
     ],
     '@typescript-eslint/default-param-last': 'error',
-    '@typescript-eslint/consistent-type-assertions': [
-      'error',
-      '1tbs',
-      {
-        allowSingleLine: false,
-      },
-    ],
+		'@typescript-eslint/consistent-type-assertions': [
+			'error',
+			{
+				assertionStyle: 'as',
+				objectLiteralTypeAssertions: 'allow-as-parameter'
+			}
+		],
     'default-param-last': 'off',
     'func-call-spacing': 'off',
     '@typescript-eslint/func-call-spacing': [
