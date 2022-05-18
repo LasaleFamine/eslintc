@@ -3,12 +3,16 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
-    '@typescript-eslint/array-type': [
+    '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
+    '@typescript-eslint/consistent-indexed-object-style': 'error',
+    '@typescript-eslint/ban-ts-comment': [
       'error',
       {
-        default: 'array-simple',
-      },
+        'ts-expect-error': 'allow-with-description',
+        minimumDescriptionLength: 4
+      }
     ],
+    '@typescript-eslint/ban-tslint-comment': 'error',
     '@typescript-eslint/ban-types': [
       'error',
       {
@@ -59,13 +63,34 @@ module.exports = {
         },
       },
     ],
+
     '@typescript-eslint/class-literal-property-style': [
       'error',
       'getters',
     ],
-    '@typescript-eslint/consistent-indexed-object-style': 'error',
     'brace-style': 'off',
     '@typescript-eslint/brace-style': [
+      'error',
+      '1tbs',
+      {
+        allowSingleLine: false
+      }
+    ],
+    'comma-dangle': 'off',
+    '@typescript-eslint/comma-dangle': [
+      'error',
+      'always-multiline'
+    ],
+    'comma-spacing': 'off',
+    '@typescript-eslint/comma-spacing': [
+      'error',
+      {
+        before: false,
+        after: true
+      }
+    ],
+    '@typescript-eslint/default-param-last': 'error',
+    '@typescript-eslint/consistent-type-assertions': [
       'error',
       '1tbs',
       {
@@ -222,6 +247,11 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/no-parameter-properties': 'error',
     '@typescript-eslint/no-use-before-define': ['error', { classes: false }],
+    'import/no-duplicates': 'off',
+		'@typescript-eslint/no-duplicate-imports': 'error',
+		'@typescript-eslint/no-confusing-void-expression': 'error',
+		'@typescript-eslint/no-duplicate-enum-values': 'error',
+		'@typescript-eslint/no-dynamic-delete': 'error',
 
     // This rule is fine. I just don't want to deal with the churn yet. Enable this in 2022.
     // '@typescript-eslint/consistent-type-definitions': [
@@ -255,10 +285,73 @@ module.exports = {
       },
     ],
 
-    '@typescript-eslint/member-ordering': 'error',
+    '@typescript-eslint/member-ordering': [
+      'error',
+      {
+        default: [
+          'signature',
+
+          'public-static-field',
+          'public-static-method',
+
+          'protected-static-field',
+          'protected-static-method',
+
+          'private-static-field',
+          'private-static-method',
+
+          'static-field',
+          'static-method',
+
+          'public-decorated-field',
+          'public-instance-field',
+          'public-abstract-field',
+          'public-field',
+
+          'protected-decorated-field',
+          'protected-instance-field',
+          'protected-abstract-field',
+          'protected-field',
+
+          'private-decorated-field',
+          'private-instance-field',
+          'private-abstract-field',
+          'private-field',
+
+          'instance-field',
+          'abstract-field',
+          'decorated-field',
+          'field',
+
+          'public-constructor',
+          'protected-constructor',
+          'private-constructor',
+          'constructor',
+
+          'public-decorated-method',
+          'public-instance-method',
+          'public-abstract-method',
+          'public-method',
+
+          'protected-decorated-method',
+          'protected-instance-method',
+          'protected-abstract-method',
+          'protected-method',
+
+          'private-decorated-method',
+          'private-instance-method',
+          'private-abstract-method',
+          'private-method',
+
+          'instance-method',
+          'abstract-method',
+          'decorated-method',
+          'method'
+        ]
+      }
+    ],
     '@typescript-eslint/method-signature-style': 'error',
     '@typescript-eslint/no-dupe-class-members': 'error',
-    '@typescript-eslint/no-dynamic-delete': 'error',
     '@typescript-eslint/no-empty-function': 'error',
     '@typescript-eslint/no-empty-interface': [
       'error',
