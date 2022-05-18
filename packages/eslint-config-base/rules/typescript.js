@@ -9,8 +9,8 @@ module.exports = {
       'error',
       {
         'ts-expect-error': 'allow-with-description',
-        minimumDescriptionLength: 4
-      }
+        minimumDescriptionLength: 4,
+      },
     ],
     '@typescript-eslint/ban-tslint-comment': 'error',
     '@typescript-eslint/ban-types': [
@@ -73,21 +73,21 @@ module.exports = {
       'error',
       '1tbs',
       {
-        allowSingleLine: false
-      }
+        allowSingleLine: false,
+      },
     ],
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': [
       'error',
-      'always-multiline'
+      'always-multiline',
     ],
     'comma-spacing': 'off',
     '@typescript-eslint/comma-spacing': [
       'error',
       {
         before: false,
-        after: true
-      }
+        after: true,
+      },
     ],
     '@typescript-eslint/default-param-last': 'error',
     '@typescript-eslint/consistent-type-assertions': [
@@ -97,31 +97,7 @@ module.exports = {
         allowSingleLine: false,
       },
     ],
-    'comma-dangle': 'off',
-    '@typescript-eslint/comma-dangle': ['error', {
-      arrays: 'always-multiline',
-      objects: 'always-multiline',
-      imports: 'always-multiline',
-      exports: 'always-multiline',
-      functions: 'always-multiline',
-    }],
-    'comma-spacing': 'off',
-    '@typescript-eslint/comma-spacing': [
-      'error',
-      {
-        before: false,
-        after: true,
-      },
-    ],
     'default-param-last': 'off',
-    '@typescript-eslint/default-param-last': 'error',
-    '@typescript-eslint/consistent-type-assertions': [
-      'error',
-      {
-        assertionStyle: 'as',
-        objectLiteralTypeAssertions: 'allow-as-parameter',
-      },
-    ],
     'func-call-spacing': 'off',
     '@typescript-eslint/func-call-spacing': [
       'error',
@@ -248,10 +224,9 @@ module.exports = {
     '@typescript-eslint/no-parameter-properties': 'error',
     '@typescript-eslint/no-use-before-define': ['error', { classes: false }],
     'import/no-duplicates': 'off',
-		'@typescript-eslint/no-duplicate-imports': 'error',
-		'@typescript-eslint/no-confusing-void-expression': 'error',
-		'@typescript-eslint/no-duplicate-enum-values': 'error',
-		'@typescript-eslint/no-dynamic-delete': 'error',
+    '@typescript-eslint/no-duplicate-imports': 'error',
+    '@typescript-eslint/no-confusing-void-expression': 'error',
+    '@typescript-eslint/no-dynamic-delete': 'error',
 
     // This rule is fine. I just don't want to deal with the churn yet. Enable this in 2022.
     // '@typescript-eslint/consistent-type-definitions': [
@@ -346,9 +321,9 @@ module.exports = {
           'instance-method',
           'abstract-method',
           'decorated-method',
-          'method'
-        ]
-      }
+          'method',
+        ],
+      },
     ],
     '@typescript-eslint/method-signature-style': 'error',
     '@typescript-eslint/no-dupe-class-members': 'error',
@@ -393,7 +368,6 @@ module.exports = {
 
     // Type info needed for testing these below
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
-    '@typescript-eslint/ban-tslint-comment': 'error',
     '@typescript-eslint/await-thenable': 'error',
     'dot-notation': 'off',
     '@typescript-eslint/dot-notation': 'error',
