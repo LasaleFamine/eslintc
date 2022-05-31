@@ -33,19 +33,21 @@ const getNamingConventionRule = ({ isTsx }) => ({
       format: [
         'camelCase',
         'PascalCase',
+        'snake_case',
+        'UPPER_CASE',
       ],
     },
     {
       selector: 'typeLike',
       format: [
-        'StrictPascalCase',
+        'PascalCase',
       ],
     },
     {
       selector: 'variable',
       format: [
         'camelCase',
-        'snake_case',
+        'UPPER_CASE',
         'PascalCase',
       ],
     },
