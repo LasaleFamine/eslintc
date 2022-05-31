@@ -245,7 +245,6 @@ module.exports = {
     'no-array-constructor': 'off',
     '@typescript-eslint/no-array-constructor': 'error',
     '@typescript-eslint/no-namespace': 'error',
-    '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/no-parameter-properties': 'error',
     '@typescript-eslint/no-use-before-define': ['error', { classes: false }],
     'import/no-duplicates': 'off',
@@ -470,8 +469,9 @@ module.exports = {
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@typescript-eslint/prefer-regexp-exec': 'error',
 
-    // Disabled until this is resolved:
-    // https://github.com/typescript-eslint/typescript-eslint/issues/202
+    // Disabled for now. There are just too many places
+    // where you need to use it because of incorrect types, for example, the Node.js types.
+    // TODO: Try to enable this again in 2023.
     // '@typescript-eslint/no-non-null-assertion': 'error',
 
     // TODO: Enable this again when I target ESM output in all my TypeScript projects
