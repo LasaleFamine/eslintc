@@ -8,6 +8,9 @@
     "test": "lerna exec -- yarn test",
     "release": "lerna publish"
   },
+  "engines": {
+    "node": ">=14"
+  },
   "workspaces": [
     "packages/*"
   ],
