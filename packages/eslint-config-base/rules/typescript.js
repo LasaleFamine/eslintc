@@ -7,7 +7,6 @@ const getNamingConventionRule = ({ isTsx }) => ({
       // Note: Leaving out `parameter` and `typeProperty` because of the mentioned known issues.
       // Note: We are intentionally leaving out `enumMember` as it's usually pascal-case or upper-snake-case.
       selector: [
-        'variable',
         'function',
         'classProperty',
         'parameterProperty',
@@ -33,13 +32,21 @@ const getNamingConventionRule = ({ isTsx }) => ({
       selector: 'objectLiteralProperty',
       format: [
         'camelCase',
-        'pascalCase',
+        'PascalCase',
       ],
     },
     {
       selector: 'typeLike',
       format: [
         'StrictPascalCase',
+      ],
+    },
+    {
+      selector: 'variable',
+      format: [
+        'camelCase',
+        'snake_case',
+        'PascalCase',
       ],
     },
     {
