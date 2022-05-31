@@ -250,7 +250,8 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error', { classes: false }],
     'import/no-duplicates': 'off',
     '@typescript-eslint/no-duplicate-imports': 'error',
-    '@typescript-eslint/no-confusing-void-expression': 'error',
+    // TODO: investigate why we have problems with react
+    // '@typescript-eslint/no-confusing-void-expression': 'error',
     '@typescript-eslint/no-dynamic-delete': 'error',
 
     // This rule is fine. I just don't want to deal with the churn yet. Enable this in 2022.
