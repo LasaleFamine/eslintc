@@ -66,12 +66,9 @@ const getNamingConventionRule = ({ isTsx }) => ({
         'should',
         'will',
         'did',
+        'loading',
+        'loaded',
       ],
-      // NOTE: avoid error on `loading` and `loaded` properties.
-      filter: {
-        regex: '^(loading|loaded)$',
-        match: false,
-      },
     },
     {
       // Interface name should not be prefixed with `I`.
