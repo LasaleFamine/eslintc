@@ -70,6 +70,7 @@ const getNamingConventionRule = ({ isTsx }) => ({
       // NOTE: avoid error on `loading` and `loaded` properties.
       filter: {
         regex: '^(loading|loaded)$',
+        match: true
       },
     },
     {
