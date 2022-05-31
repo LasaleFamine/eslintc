@@ -148,9 +148,7 @@ module.exports = {
     }],
 
     // disallow use of multiple spaces
-    'no-multi-spaces': ['error', {
-      ignoreEOLComments: false,
-    }],
+    'no-multi-spaces': ['error'],
 
     // disallow use of multiline strings
     'no-multi-str': 'error',
