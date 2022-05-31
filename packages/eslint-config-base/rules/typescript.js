@@ -1,3 +1,94 @@
+
+const getNamingConventionRule = ({ isTsx }) => ({
+  '@typescript-eslint/naming-convention': [
+    'error',
+    {
+      // / selector: ['variableLike', 'memberLike', 'property', 'method'],
+      // Note: Leaving out `parameter` and `typeProperty` because of the mentioned known issues.
+      // Note: We are intentionally leaving out `enumMember` as it's usually pascal-case or upper-snake-case.
+      selector: [
+        'variable',
+        'function',
+        'classProperty',
+        'parameterProperty',
+        'classMethod',
+        'objectLiteralMethod',
+        'typeMethod',
+        'accessor',
+      ],
+      format: [
+        'strictCamelCase',
+        isTsx && 'StrictPascalCase',
+      ].filter(Boolean),
+      // We allow double underscore because of GraphQL type names and some React names.
+      leadingUnderscore: 'allowSingleOrDouble',
+      trailingUnderscore: 'allow',
+      // Ignore `{'Retry-After': retryAfter}` type properties.
+      filter: {
+        regex: '[- ]',
+        match: false,
+      },
+    },
+    {
+      selector: 'objectLiteralProperty',
+      format: [
+        'camelCase',
+        'pascalCase',
+      ],
+    },
+    {
+      selector: 'typeLike',
+      format: [
+        'StrictPascalCase',
+      ],
+    },
+    {
+      selector: 'variable',
+      types: [
+        'boolean',
+      ],
+      format: [
+        'StrictPascalCase',
+      ],
+      prefix: [
+        'is',
+        'has',
+        'can',
+        'should',
+        'will',
+        'did',
+      ],
+    },
+    {
+      // Interface name should not be prefixed with `I`.
+      selector: 'interface',
+      filter: /^(?!I)[A-Z]/.source,
+      format: [
+        'StrictPascalCase',
+      ],
+    },
+    {
+      // Type parameter name should either be `T` or a descriptive name.
+      selector: 'typeParameter',
+      filter: /^T$|^[A-Z][a-zA-Z]+$/.source,
+      format: [
+        'StrictPascalCase',
+      ],
+    },
+    // Allow these in non-camel-case when quoted.
+    {
+      selector: [
+        'classProperty',
+        'objectLiteralProperty',
+      ],
+      format: null,
+      modifiers: [
+        'requiresQuotes',
+      ],
+    },
+  ],
+});
+
 module.exports = {
   parser: require.resolve('@typescript-eslint/parser'),
   plugins: ['@typescript-eslint'],
@@ -109,88 +200,11 @@ module.exports = {
 
     // We use `@typescript-eslint/naming-convention` in favor of `camelcase`.
     camelcase: 'off',
-    // TODO: Enable this again when the following is fixed:
+    // Known issues:
     // - https://github.com/typescript-eslint/typescript-eslint/issues/1485
     // - https://github.com/typescript-eslint/typescript-eslint/issues/1484
     // TODO: Prevent `_` prefix on private fields when TypeScript 3.8 is out.
-    // '@typescript-eslint/naming-convention': [
-    // 'error',
-    // {
-    //   selector: 'default',
-    //   format: [
-    //     'strictCamelCase'
-    //   ],
-    //   We allow double underscope because of GraphQL type names and some React names.
-    //   leadingUnderscore: 'allowSingleOrDouble',
-    //   trailingUnderscore: 'allow',
-    //   Ignore `{'Retry-After': retryAfter}` type properties.
-    //   filter: {
-    //     regex: '[- ]',
-    //     match: false
-    //   }
-    // },
-    // {
-    //   selector: 'typeLike',
-    //   format: [
-    //     'StrictPascalCase'
-    //   ]
-    // },
-    // {
-    //   selector: 'variable',
-    //   types: [
-    //     'boolean'
-    //   ],
-    //   format: [
-    //     'StrictPascalCase'
-    //   ],
-    //   prefix: [
-    //     'is',
-    //     'has',
-    //     'can',
-    //     'should',
-    //     'will',
-    //     'did'
-    //   ]
-    // },
-    // {
-    //   Interface name should not be prefixed with `I`.
-    //   selector: 'interface',
-    //   filter: /^(?!I)[A-Z]/.source,
-    //   format: [
-    //     'StrictPascalCase'
-    //   ]
-    // },
-    // {
-    //   Type parameter name should either be `T` or a descriptive name.
-    //   selector: 'typeParameter',
-    //   filter: /^T$|^[A-Z][a-zA-Z]+$/.source,
-    //   format: [
-    //     'StrictPascalCase'
-    //   ]
-    // },
-    // Allow these in non-camel-case when quoted.
-    // {
-    //   selector: [
-    //     'classProperty',
-    //     'objectLiteralProperty'
-    //   ],
-    //   format: null,
-    //   modifiers: [
-    //     'requiresQuotes'
-    //   ]
-    // }
-    // ],
-    // Disabled because it's too annoying. Enable it when it's more mature, smarter, and more flexible.
-    // https://github.com/typescript-eslint/typescript-eslint/search?q=%22explicit-function-return-type%22&state=open&type=Issues
-    // '@typescript-eslint/explicit-function-return-type': [
-    //  'error',
-    //  {
-    //    allowExpressions: true,
-    //    allowTypedFunctionExpressions: true,
-    //    allowHigherOrderFunctions: true,
-    //    allowConciseArrowFunctionExpressionsStartingWithVoid: false
-    //  }
-    // ],
+    ...getNamingConventionRule({ isTsx: false }),
     // TODO: enabled this
     // '@typescript-eslint/explicit-member-accessibility': 'error',
     '@typescript-eslint/indent': ['error', 2, {
@@ -359,7 +373,9 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-for-in-array': 'error',
+    '@typescript-eslint/no-implicit-any-catch': 'error',
     '@typescript-eslint/no-inferrable-types': 'error',
+    '@typescript-eslint/no-meaningless-void-operator': 'error',
     '@typescript-eslint/no-invalid-void-type': 'error',
     '@typescript-eslint/no-misused-new': 'error',
 
@@ -383,23 +399,46 @@ module.exports = {
         checksVoidReturn: false,
       },
     ],
-    '@typescript-eslint/no-throw-literal': 'error',
+    '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
+    '@typescript-eslint/no-redundant-type-constituents': 'error',
+    // TODO re-enable when all the require() are gone
+    // '@typescript-eslint/no-require-imports': 'error',
+    '@typescript-eslint/no-this-alias': [
+      'error',
+      {
+        allowDestructuring: true,
+      },
+    ],
+    '@typescript-eslint/no-throw-literal': [
+      'error',
+      {
+        // This should ideally be `false`, but it makes rethrowing errors inconvenient.
+        // There should be a separate `allowRethrowingUnknown` option.
+        allowThrowingUnknown: true,
+        allowThrowingAny: false,
+      },
+    ],
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
     '@typescript-eslint/no-unnecessary-qualifier': 'error',
     '@typescript-eslint/no-unnecessary-type-arguments': 'error',
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+    '@typescript-eslint/no-unnecessary-type-constraint': 'error',
+    '@typescript-eslint/no-unsafe-assignment': 'error',
+    // TODO: conflicts with test tools, must be activated and overridden in tests
+    // '@typescript-eslint/no-unsafe-call': 'error',
+
+    // Disabled until TypeScrpt supports the `node:` protocol.
+    // '@typescript-eslint/no-unsafe-member-access': 'error',
+
+    '@typescript-eslint/no-unsafe-return': 'error',
+    '@typescript-eslint/no-useless-empty-export': 'error',
     '@typescript-eslint/prefer-includes': 'error',
     '@typescript-eslint/prefer-nullish-coalescing': 'error',
     '@typescript-eslint/prefer-optional-chain': 'error',
     '@typescript-eslint/prefer-readonly': 'error',
     '@typescript-eslint/prefer-reduce-type-parameter': 'error',
     '@typescript-eslint/prefer-string-starts-ends-with': 'error',
-    '@typescript-eslint/promise-function-async': [
-      'error',
-      {
-        allowAny: true,
-      },
-    ],
+    '@typescript-eslint/promise-function-async': ['error'],
     '@typescript-eslint/restrict-plus-operands': 'error',
     '@typescript-eslint/restrict-template-expressions': [
       'error',
@@ -410,7 +449,12 @@ module.exports = {
       },
     ],
     '@typescript-eslint/return-await': 'error',
-    '@typescript-eslint/require-array-sort-compare': 'error',
+    '@typescript-eslint/require-array-sort-compare': [
+      'error',
+      {
+        ignoreStringArrays: true,
+      },
+    ],
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@typescript-eslint/prefer-regexp-exec': 'error',
 
@@ -421,15 +465,13 @@ module.exports = {
     // TODO: Enable this again when I target ESM output in all my TypeScript projects
     // '@typescript-eslint/no-require-imports': 'error',
 
-    '@typescript-eslint/no-this-alias': [
-      'error',
-      {
-        allowDestructuring: true,
-      },
-    ],
-
-    // TODO: Reconsider enabling this again in 2020.
-    // Disable because it has too many false-positives: https://github.com/typescript-eslint/typescript-eslint/search?q=no-unnecessary-condition+is%3Aissue&state=open&type=Issues
+    // TODO: Try to enable this again in 2023 *if* the following are resolved:
+    // - https://github.com/microsoft/TypeScript/issues/36393
+    // - The rule needs a way to ignore runtime type-checks: https://github.com/sindresorhus/refined-github/pull/3168
+    // - Run the rule on https://github.com/sindresorhus/refined-github and ensure there are no false-positives
+    //
+    // Also related: https://github.com/typescript-eslint/typescript-eslint/issues/1798
+    // Also disable `no-constant-condition` when this is enabled
     // '@typescript-eslint/no-unnecessary-condition': [
     //  'error',
     //  {
@@ -463,7 +505,28 @@ module.exports = {
 
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
+    'object-curly-spacing': 'off',
+    '@typescript-eslint/object-curly-spacing': [
+      'error',
+      'always',
+    ],
+    'padding-line-between-statements': 'off',
+    '@typescript-eslint/padding-line-between-statements': [
+      'error',
+      {
+        blankLine: 'always',
+        prev: 'multiline-block-like',
+        next: '*',
+      },
+    ],
     '@typescript-eslint/no-var-requires': 'error',
+    '@typescript-eslint/non-nullable-type-assertion-style': 'error',
+    '@typescript-eslint/parameter-properties': [
+      'error',
+      {
+        prefer: 'parameter-property',
+      },
+    ],
     '@typescript-eslint/prefer-as-const': 'error',
     '@typescript-eslint/prefer-for-of': 'error',
     '@typescript-eslint/prefer-function-type': 'error',
@@ -516,7 +579,10 @@ module.exports = {
         asyncArrow: 'always',
       },
     ],
-    // TODO: Reconsider enabling it again in 2021.
+
+    // TODO: Reconsider enabling it again in 2023.
+    // NOTE: The rule was complete redone in typescript-eslint v3,
+    // so this config needs to be changed before this is enabled.
     // Disabled for now as it's too strict.
     // Relevant discussion: https://github.com/sindresorhus/refined-github/pull/2521#discussion_r343013852
     // '@typescript-eslint/strict-boolean-expressions': [
@@ -563,4 +629,22 @@ module.exports = {
     // Disabled because of https://github.com/typescript-eslint/typescript-eslint/issues/60
     'no-redeclare': 'off',
   },
+  overrides: [
+    {
+      files: [
+        '**/*.d.ts',
+      ],
+      rules: {
+        '@typescript-eslint/no-unused-vars': 'off',
+      },
+    },
+    {
+      files: [
+        '**/*.tsx',
+      ],
+      rules: {
+        ...getNamingConventionRule({ isTsx: true }),
+      },
+    },
+  ],
 };
