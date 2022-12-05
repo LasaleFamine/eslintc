@@ -27,11 +27,11 @@
     "lint": "eslint --report-unused-disable-directives ."
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": ">=4.22.1",
-    "@typescript-eslint/parser": ">=4.22.1",
-    "eslint": ">=7.26.0",
-    "eslint-plugin-import": ">=2.19.1",
-    "eslint-plugin-simple-import-sort": ">=7.0.0",
+    "@typescript-eslint/eslint-plugin": ">=5.45.0",
+    "@typescript-eslint/parser": ">=5.45.0",
+    "eslint": ">=8.29.0",
+    "eslint-plugin-import": ">=2.26.0",
+    "eslint-plugin-simple-import-sort": ">=8.0.0",
     "typescript": ">=4"
   },
   "engines": {
