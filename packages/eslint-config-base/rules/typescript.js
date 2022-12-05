@@ -292,10 +292,10 @@ module.exports = {
           optionalityOrder: 'optional-first',
           order: 'alphabetically',
           memberTypes: [
-            "signature",
-            "field",
-            "constructor",
-            "method"
+            'signature',
+            'field',
+            'constructor',
+            'method',
           ],
         },
       },
