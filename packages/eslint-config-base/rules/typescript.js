@@ -289,8 +289,9 @@ module.exports = {
       'error',
       {
         default: {
-          optionalityOrder: 'optional-first',
-          order: 'alphabetically',
+          // TODO enable when auto sort will be available
+          // optionalityOrder: 'optional-first',
+          // order: 'alphabetically',
           memberTypes: [
             'signature',
             'field',
