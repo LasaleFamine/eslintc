@@ -140,7 +140,21 @@ module.exports = {
       ImportDeclaration: 1,
       flatTernaryExpressions: false,
       // list derived from https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
-      ignoredNodes: ['JSXElement', 'JSXElement > *', 'JSXAttribute', 'JSXIdentifier', 'JSXNamespacedName', 'JSXMemberExpression', 'JSXSpreadAttribute', 'JSXExpressionContainer', 'JSXOpeningElement', 'JSXClosingElement', 'JSXText', 'JSXEmptyExpression', 'JSXSpreadChild'],
+      ignoredNodes: [
+        'JSXElement',
+        'JSXElement > *',
+        'JSXAttribute',
+        'JSXIdentifier',
+        'JSXNamespacedName',
+        'JSXMemberExpression',
+        'JSXSpreadAttribute',
+        'JSXExpressionContainer',
+        'JSXOpeningElement',
+        'JSXClosingElement',
+        'JSXText',
+        'JSXEmptyExpression',
+        'JSXSpreadChild',
+      ],
       ignoreComments: false,
     }],
 
@@ -198,7 +212,7 @@ module.exports = {
       ignoreUrls: true,
       ignoreComments: false,
       ignoreRegExpLiterals: true,
-      ignoreStrings: true,
+      ignoreStrings: false,
       ignoreTemplateLiterals: true,
     }],
 
@@ -335,11 +349,13 @@ module.exports = {
       'error',
       {
         selector: 'ForInStatement',
-        message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
+        message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use '
+        + 'Object.{keys,values,entries}, and iterate over the resulting array.',
       },
       {
         selector: 'ForOfStatement',
-        message: 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.',
+        message: 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow '
+        + 'them. Separately, loops should be avoided in favor of array iterations.',
       },
       {
         selector: 'LabeledStatement',
