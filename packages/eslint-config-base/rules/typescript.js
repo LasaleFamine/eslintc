@@ -137,15 +137,18 @@ module.exports = {
             fixWith: 'symbol',
           },
           Object: {
-            message: 'The `Object` type is mostly the same as `unknown`. You probably want `Record<string, unknown>` instead. See https://github.com/typescript-eslint/typescript-eslint/pull/848',
+            message: 'The `Object` type is mostly the same as `unknown`. You probably want `Record<string, unknown>` '
+            + 'instead. See https://github.com/typescript-eslint/typescript-eslint/pull/848',
             fixWith: 'Record<string, unknown>',
           },
           '{}': {
-            message: 'The `{}` type is mostly the same as `unknown`. You probably want `Record<string, unknown>` instead.',
+            message: 'The `{}` type is mostly the same as `unknown`. You probably want `Record<string, unknown>` '
+            + 'instead.',
             fixWith: 'Record<string, unknown>',
           },
           object: {
-            message: 'The `object` type is hard to use. Use `Record<string, unknown>` instead. See: https://github.com/typescript-eslint/typescript-eslint/pull/848',
+            message: 'The `object` type is hard to use. Use `Record<string, unknown>` instead. See: '
+            + 'https://github.com/typescript-eslint/typescript-eslint/pull/848',
             fixWith: 'Record<string, unknown>',
           },
           Function: 'Use a specific function type instead, like `() => void`.',
@@ -157,7 +160,8 @@ module.exports = {
           // }
 
           '[]': 'Don\'t use the empty array type `[]`. It only allows empty arrays. Use `SomeType[]` instead.',
-          '[[]]': 'Don\'t use `[[]]`. It only allows an array with a single element which is an empty array. Use `SomeType[][]` instead.',
+          '[[]]': 'Don\'t use `[[]]`. It only allows an array with a single element which is an empty array. Use '
+          + '`SomeType[][]` instead.',
           '[[[]]]': 'Don\'t use `[[[]]]`. Use `SomeType[][][]` instead.',
           '[[[[]]]]': 'ur drunk 🤡',
           '[[[[[]]]]]': '🦄💥',
@@ -239,7 +243,20 @@ module.exports = {
       ImportDeclaration: 1,
       flatTernaryExpressions: false,
       // list derived from https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
-      ignoredNodes: ['JSXElement', 'JSXElement > *', 'JSXAttribute', 'JSXIdentifier', 'JSXNamespacedName', 'JSXMemberExpression', 'JSXSpreadAttribute', 'JSXExpressionContainer', 'JSXOpeningElement', 'JSXClosingElement', 'JSXText', 'JSXEmptyExpression', 'JSXSpreadChild'],
+      ignoredNodes: ['JSXElement',
+        'JSXElement > *',
+        'JSXAttribute',
+        'JSXIdentifier',
+        'JSXNamespacedName',
+        'JSXMemberExpression',
+        'JSXSpreadAttribute',
+        'JSXExpressionContainer',
+        'JSXOpeningElement',
+        'JSXClosingElement',
+        'JSXText',
+        'JSXEmptyExpression',
+        'JSXSpreadChild',
+      ],
       ignoreComments: false,
     }],
     'no-array-constructor': 'off',
