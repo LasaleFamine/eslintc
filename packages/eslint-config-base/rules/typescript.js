@@ -262,10 +262,8 @@ module.exports = {
     'no-array-constructor': 'off',
     '@typescript-eslint/no-array-constructor': 'error',
     '@typescript-eslint/no-namespace': 'error',
-    '@typescript-eslint/no-parameter-properties': 'error',
     '@typescript-eslint/no-use-before-define': ['error', { classes: false }],
     'import/no-duplicates': 'off',
-    '@typescript-eslint/no-duplicate-imports': 'error',
     // TODO: investigate why we have problems with react
     // '@typescript-eslint/no-confusing-void-expression': 'error',
     '@typescript-eslint/no-dynamic-delete': 'error',
@@ -352,7 +350,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-for-in-array': 'error',
-    '@typescript-eslint/no-implicit-any-catch': 'error',
     '@typescript-eslint/no-inferrable-types': 'error',
     '@typescript-eslint/no-meaningless-void-operator': 'error',
     '@typescript-eslint/no-invalid-void-type': 'error',
