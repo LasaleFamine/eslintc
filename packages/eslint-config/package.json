@@ -27,8 +27,8 @@
     "lint": "eslint --report-unused-disable-directives ."
   },
   "peerDependencies": {
-    "eslint-plugin-jsx-a11y": ">=6.6.1",
-    "eslint-plugin-react": ">=7.31.11",
+    "eslint-plugin-jsx-a11y": ">=6.7.1",
+    "eslint-plugin-react": ">=7.33.2",
     "eslint-plugin-react-hooks": ">=4.6.0"
   },
   "engines": {
@@ -38,10 +38,10 @@
     "access": "public"
   },
   "dependencies": {
-    "@lasalefamine/eslint-config-base": "link:../eslint-config-base",
-    "confusing-browser-globals": "^1.0.10",
-    "object.assign": "^4.1.2",
-    "object.entries": "^1.1.5"
+    "@lasalefamine/eslint-config-base": "file:../eslint-config-base",
+    "confusing-browser-globals": "^1.0.11",
+    "object.assign": "^4.1.4",
+    "object.entries": "^1.1.7"
   },
   "gitHead": "cba38fe827537a2bac8222ae2ffb2cf8f765a968"
 }

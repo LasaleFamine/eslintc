@@ -27,12 +27,12 @@
     "lint": "eslint --report-unused-disable-directives ."
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": ">=5.45.0",
-    "@typescript-eslint/parser": ">=5.45.0",
-    "eslint": ">=8.29.0",
-    "eslint-plugin-import": ">=2.26.0",
-    "eslint-plugin-simple-import-sort": ">=8.0.0",
-    "typescript": ">=4"
+    "@typescript-eslint/eslint-plugin": ">=6.7.4",
+    "@typescript-eslint/parser": ">=6.7.4",
+    "eslint": ">=8.50.0",
+    "eslint-plugin-import": ">=2.28.1",
+    "eslint-plugin-simple-import-sort": ">=10.0.0",
+    "typescript": ">=5"
   },
   "engines": {
     "node": ">= 12"
@@ -41,9 +41,9 @@
     "access": "public"
   },
   "dependencies": {
-    "confusing-browser-globals": "^1.0.10",
-    "object.assign": "^4.1.2",
-    "object.entries": "^1.1.5"
+    "confusing-browser-globals": "^1.0.11",
+    "object.assign": "^4.1.4",
+    "object.entries": "^1.1.7"
   },
   "gitHead": "cba38fe827537a2bac8222ae2ffb2cf8f765a968"
 }
