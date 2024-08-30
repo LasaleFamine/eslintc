@@ -5,6 +5,9 @@
 
 > Complete ESlint configuration. Batteries included.
 
+## WARN
+> From version 5.0.0 we are using ESlint 9.
+
 There are 3 ESLint configurations for your usage.
 
 Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-simple-import-sort`, `eslint-plugin-react`, `eslint-plugin-react-hooks`, `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `typescript`, and `eslint-plugin-jsx-a11y`. If you don't need React, see `@lasalefamine/eslint-config-base`.

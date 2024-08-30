@@ -7,6 +7,9 @@
 
 Our default export contains all of our ESLint rules, including ECMAScript 6+. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-simple-import-sort`, `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser` and `typescript`
 
+## WARN
+> From version 5.0.0 we are using ESlint 9.
+
 ## Install
 
 First install the dependencies:
