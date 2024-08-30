@@ -1,6 +1,6 @@
 {
   "name": "@lasalefamine/eslint-config-base",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "Eslint JS sharable base config",
   "main": "index.mjs",
   "repository": {
