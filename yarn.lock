@@ -678,7 +678,7 @@
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
 "@lasalefamine/eslint-config-base@file:packages/eslint-config-base":
-  version "3.1.1"
+  version "4.0.0"
   dependencies:
     confusing-browser-globals "^1.0.11"
     object.assign "^4.1.5"
