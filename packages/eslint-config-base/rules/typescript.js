@@ -115,59 +115,31 @@ module.exports = {
       },
     ],
     '@typescript-eslint/ban-tslint-comment': 'error',
-    '@typescript-eslint/ban-types': [
+    '@typescript-eslint/no-restricted-types': [
       'error',
       {
-        extendDefaults: false,
         types: {
-          String: {
-            message: 'Use `string` instead.',
-            fixWith: 'string',
-          },
-          Number: {
-            message: 'Use `number` instead.',
-            fixWith: 'number',
-          },
-          Boolean: {
-            message: 'Use `boolean` instead.',
-            fixWith: 'boolean',
-          },
-          Symbol: {
-            message: 'Use `symbol` instead.',
-            fixWith: 'symbol',
-          },
-          Object: {
-            message: 'The `Object` type is mostly the same as `unknown`. You probably want `Record<string, unknown>` '
-            + 'instead. See https://github.com/typescript-eslint/typescript-eslint/pull/848',
-            fixWith: 'Record<string, unknown>',
-          },
-          '{}': {
-            message: 'The `{}` type is mostly the same as `unknown`. You probably want `Record<string, unknown>` '
-            + 'instead.',
-            fixWith: 'Record<string, unknown>',
-          },
           object: {
-            message: 'The `object` type is hard to use. Use `Record<string, unknown>` instead. See: '
-            + 'https://github.com/typescript-eslint/typescript-eslint/pull/848',
-            fixWith: 'Record<string, unknown>',
+            message: 'The `object` type is hard to use. Use `Record<string, unknown>` instead. See: https://github.com/typescript-eslint/typescript-eslint/pull/848',
+            fixWith: 'Record<string, unknown>'
           },
-          Function: 'Use a specific function type instead, like `() => void`.',
-
-          // TODO: Try to enable this in 2021.
-          // null: {
-          //  message: 'Use `undefined` instead. See: https://github.com/sindresorhus/meta/issues/7',
-          //  fixWith: 'undefined'
-          // }
-
+          null: {
+            message: 'Use `undefined` instead. See: https://github.com/sindresorhus/meta/issues/7',
+            fixWith: 'undefined'
+          },
+          Buffer: {
+            message: 'Use Uint8Array instead. See: https://sindresorhus.com/blog/goodbye-nodejs-buffer',
+            suggest: [
+              'Uint8Array'
+            ]
+          },
           '[]': 'Don\'t use the empty array type `[]`. It only allows empty arrays. Use `SomeType[]` instead.',
-          '[[]]': 'Don\'t use `[[]]`. It only allows an array with a single element which is an empty array. Use '
-          + '`SomeType[][]` instead.',
+          '[[]]': 'Don\'t use `[[]]`. It only allows an array with a single element which is an empty array. Use `SomeType[][]` instead.',
           '[[[]]]': 'Don\'t use `[[[]]]`. Use `SomeType[][][]` instead.',
           '[[[[]]]]': 'ur drunk 🤡',
-          '[[[[[]]]]]': '🦄💥',
-          Omit: 'Prefer the `Except` type in the `type-fest` package instead as it\'s stricter.',
-        },
-      },
+          '[[[[[]]]]]': '🦄💥'
+        }
+      }
     ],
 
     '@typescript-eslint/class-literal-property-style': [
@@ -303,18 +275,65 @@ module.exports = {
     '@typescript-eslint/member-ordering': [
       'error',
       {
-        default: {
-          // TODO enable when auto sort will be available
-          // optionalityOrder: 'optional-first',
-          // order: 'alphabetically',
-          memberTypes: [
-            'signature',
-            'field',
-            'constructor',
-            'method',
-          ],
-        },
-      },
+        default: [
+          'signature',
+
+          'public-static-field',
+          'public-static-method',
+
+          'protected-static-field',
+          'protected-static-method',
+
+          'private-static-field',
+          'private-static-method',
+
+          'static-field',
+          'static-method',
+
+          'public-decorated-field',
+          'public-instance-field',
+          'public-abstract-field',
+          'public-field',
+
+          'protected-decorated-field',
+          'protected-instance-field',
+          'protected-abstract-field',
+          'protected-field',
+
+          'private-decorated-field',
+          'private-instance-field',
+          'private-field',
+
+          'instance-field',
+          'abstract-field',
+          'decorated-field',
+          'field',
+
+          'public-constructor',
+          'protected-constructor',
+          'private-constructor',
+          'constructor',
+
+          'public-decorated-method',
+          'public-instance-method',
+          'public-abstract-method',
+          'public-method',
+
+          'protected-decorated-method',
+          'protected-instance-method',
+          'protected-abstract-method',
+          'protected-method',
+
+          'private-decorated-method',
+          'private-instance-method',
+          'private-method',
+
+          'instance-method',
+          'abstract-method',
+          'decorated-method',
+          'method'
+        ]
+      }
     ],
     '@typescript-eslint/method-signature-style': 'error',
     '@typescript-eslint/no-dupe-class-members': 'error',
@@ -325,8 +344,9 @@ module.exports = {
         allowSingleExtends: true,
       },
     ],
+    '@typescript-eslint/no-empty-object-type': 'error',
 
-    // TODO: Try to enable this again in 2021.
+    // TODO: Try to enable this again in 2025.
     // Disabled for now. This is a great rule.
     // It's just that TypeScript is not good enough yet to not use `any` in many places.
     // For example: https://github.com/sindresorhus/refined-github/pull/2391#discussion_r318995182
@@ -399,7 +419,13 @@ module.exports = {
     '@typescript-eslint/no-unnecessary-type-arguments': 'error',
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
     '@typescript-eslint/no-unnecessary-type-constraint': 'error',
+    '@typescript-eslint/no-unsafe-argument': 'error',
     '@typescript-eslint/no-unsafe-assignment': 'error',
+    '@typescript-eslint/no-unsafe-call': 'error',
+    '@typescript-eslint/no-unsafe-declaration-merging': 'error',
+    '@typescript-eslint/no-unsafe-enum-comparison': 'error',
+    '@typescript-eslint/no-unsafe-assignment': 'error',
+    '@typescript-eslint/no-unsafe-function-type': 'error',
     // TODO: conflicts with test tools, must be activated and overridden in tests
     // '@typescript-eslint/no-unsafe-call': 'error',
 
@@ -496,6 +522,7 @@ module.exports = {
         next: '*',
       },
     ],
+    '@typescript-eslint/no-wrapper-object-types': 'error',
     '@typescript-eslint/no-var-requires': 'error',
     '@typescript-eslint/non-nullable-type-assertion-style': 'error',
     '@typescript-eslint/parameter-properties': [
