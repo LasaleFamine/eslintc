@@ -2,7 +2,7 @@
   "name": "@lasalefamine/eslint-config",
   "version": "4.0.0",
   "description": "ESLint sharable config",
-  "main": "index.js",
+  "main": "index.mjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/LasaleFamine/eslintc"
