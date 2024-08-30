@@ -2,6 +2,7 @@
   "compilerOptions": { "strict": true },
   "include": [
     "**/*.js",
-    ".eslintrc.js"
+    "**/*.mjs",
+    "eslint.config.js"
   ]
 }

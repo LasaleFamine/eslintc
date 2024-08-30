@@ -1,7 +1,4 @@
-module.exports = {
-  env: {
-    es6: true,
-  },
+export const es6 = [{
   rules: {
     // enforces no braces where they can be omitted
     // https://eslint.org/docs/rules/arrow-body-style
@@ -166,4 +163,4 @@ module.exports = {
     // https://eslint.org/docs/rules/yield-star-spacing
     'yield-star-spacing': ['error', 'after'],
   },
-};
+}];

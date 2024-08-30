@@ -1,4 +1,4 @@
-module.exports = {
+export const errors = [{
   rules: {
     // Enforce “for” loop update clause moving the counter in the right direction
     // https://eslint.org/docs/rules/for-direction
@@ -139,4 +139,4 @@ module.exports = {
     // https://eslint.org/docs/rules/valid-typeof
     'valid-typeof': ['error', { requireStringLiterals: true }],
   },
-};
+}];

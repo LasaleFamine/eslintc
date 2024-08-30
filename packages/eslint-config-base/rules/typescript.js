@@ -102,7 +102,7 @@ const getNamingConventionRule = ({ isTsx }) => ({
 
 module.exports = {
   parser: require.resolve('@typescript-eslint/parser'),
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', '@stylistic'],
   rules: {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
@@ -121,25 +121,26 @@ module.exports = {
         types: {
           object: {
             message: 'The `object` type is hard to use. Use `Record<string, unknown>` instead. See: https://github.com/typescript-eslint/typescript-eslint/pull/848',
-            fixWith: 'Record<string, unknown>'
+            fixWith: 'Record<string, unknown>',
           },
           null: {
             message: 'Use `undefined` instead. See: https://github.com/sindresorhus/meta/issues/7',
-            fixWith: 'undefined'
+            fixWith: 'undefined',
           },
           Buffer: {
             message: 'Use Uint8Array instead. See: https://sindresorhus.com/blog/goodbye-nodejs-buffer',
             suggest: [
-              'Uint8Array'
-            ]
+              'Uint8Array',
+            ],
           },
           '[]': 'Don\'t use the empty array type `[]`. It only allows empty arrays. Use `SomeType[]` instead.',
+          // eslint-disable-next-line max-len
           '[[]]': 'Don\'t use `[[]]`. It only allows an array with a single element which is an empty array. Use `SomeType[][]` instead.',
           '[[[]]]': 'Don\'t use `[[[]]]`. Use `SomeType[][][]` instead.',
           '[[[[]]]]': 'ur drunk 🤡',
-          '[[[[[]]]]]': '🦄💥'
-        }
-      }
+          '[[[[[]]]]]': '🦄💥',
+        },
+      },
     ],
 
     '@typescript-eslint/class-literal-property-style': [
@@ -147,7 +148,7 @@ module.exports = {
       'getters',
     ],
     'brace-style': 'off',
-    '@typescript-eslint/brace-style': [
+    '@stylistic/brace-style': [
       'error',
       '1tbs',
       {
@@ -155,12 +156,12 @@ module.exports = {
       },
     ],
     'comma-dangle': 'off',
-    '@typescript-eslint/comma-dangle': [
+    '@stylistic/comma-dangle': [
       'error',
       'always-multiline',
     ],
     'comma-spacing': 'off',
-    '@typescript-eslint/comma-spacing': [
+    '@stylistic/comma-spacing': [
       'error',
       {
         before: false,
@@ -177,7 +178,7 @@ module.exports = {
     ],
     'default-param-last': 'off',
     'func-call-spacing': 'off',
-    '@typescript-eslint/func-call-spacing': [
+    '@stylistic/func-call-spacing': [
       'error',
       'never',
     ],
@@ -194,7 +195,7 @@ module.exports = {
     ...getNamingConventionRule({ isTsx: false }),
     // TODO: enabled this
     // '@typescript-eslint/explicit-member-accessibility': 'error',
-    '@typescript-eslint/indent': ['error', 2, {
+    '@stylistic/indent': ['error', 2, {
       SwitchCase: 1,
       VariableDeclarator: 1,
       outerIIFEBody: 1,
@@ -258,7 +259,7 @@ module.exports = {
     //  }
     // ],
 
-    '@typescript-eslint/member-delimiter-style': [
+    '@stylistic/member-delimiter-style': [
       'error',
       {
         multiline: {
@@ -331,9 +332,9 @@ module.exports = {
           'instance-method',
           'abstract-method',
           'decorated-method',
-          'method'
-        ]
-      }
+          'method',
+        ],
+      },
     ],
     '@typescript-eslint/method-signature-style': 'error',
     '@typescript-eslint/no-dupe-class-members': 'error',
@@ -405,11 +406,11 @@ module.exports = {
         allowDestructuring: true,
       },
     ],
-    '@typescript-eslint/no-throw-literal': [
+    '@typescript-eslint/only-throw-error': [
       'error',
       {
-        // This should ideally be `false`, but it makes rethrowing errors inconvenient.
-        // There should be a separate `allowRethrowingUnknown` option.
+        // eslint-disable-next-line max-len
+        // This should ideally be `false`, but it makes rethrowing errors inconvenient. There should be a separate `allowRethrowingUnknown` option.
         allowThrowingUnknown: true,
         allowThrowingAny: false,
       },
@@ -424,7 +425,6 @@ module.exports = {
     '@typescript-eslint/no-unsafe-call': 'error',
     '@typescript-eslint/no-unsafe-declaration-merging': 'error',
     '@typescript-eslint/no-unsafe-enum-comparison': 'error',
-    '@typescript-eslint/no-unsafe-assignment': 'error',
     '@typescript-eslint/no-unsafe-function-type': 'error',
     // TODO: conflicts with test tools, must be activated and overridden in tests
     // '@typescript-eslint/no-unsafe-call': 'error',
@@ -509,12 +509,12 @@ module.exports = {
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
     'object-curly-spacing': 'off',
-    '@typescript-eslint/object-curly-spacing': [
+    '@stylistic/object-curly-spacing': [
       'error',
       'always',
     ],
     'padding-line-between-statements': 'off',
-    '@typescript-eslint/padding-line-between-statements': [
+    '@stylistic/padding-line-between-statements': [
       'error',
       {
         blankLine: 'always',
@@ -564,7 +564,7 @@ module.exports = {
 
     '@typescript-eslint/prefer-ts-expect-error': 'error',
     quotes: 'off',
-    '@typescript-eslint/quotes': [
+    '@stylistic/quotes': [
       'error',
       'single',
     ],
@@ -575,13 +575,20 @@ module.exports = {
     // 'require-await': 'off',
     // '@typescript-eslint/require-await': 'error',
 
-    '@typescript-eslint/space-before-function-paren': [
+    '@stylistic/space-before-function-paren': [
       'error',
       {
         anonymous: 'always',
         named: 'never',
         asyncArrow: 'always',
       },
+    ],
+    'space-infix-ops': 'off',
+    '@stylistic/space-infix-ops': 'error',
+    'space-before-blocks': 'off',
+    '@stylistic/space-before-blocks': [
+      'error',
+      'always',
     ],
 
     // TODO: Reconsider enabling it again in 2023.
@@ -605,7 +612,7 @@ module.exports = {
         // types: 'never'
       },
     ],
-    '@typescript-eslint/type-annotation-spacing': 'error',
+    '@stylistic/type-annotation-spacing': 'error',
 
     // Disabled as it crashes on most code.
     // https://github.com/typescript-eslint/typescript-eslint/search?q=%22unbound-method%22&state=open&type=Issues
