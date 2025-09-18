@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import react from 'eslint-plugin-react';
 
 export const reactRules = [{

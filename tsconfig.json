@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "allowJs": true,
+    "checkJs": true,
+    "moduleResolution": "node",
+    "target": "ES2018",
+    "module": "ESNext",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "packages/**/*.js",
+    "packages/**/*.mjs"
+  ]
+}

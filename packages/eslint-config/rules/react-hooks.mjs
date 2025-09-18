@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 
 import reactHooks from 'eslint-plugin-react-hooks';
 

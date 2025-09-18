@@ -1,5 +1,4 @@
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { mainConfig as lasalefamineBase } from '@lasalefamine/eslint-config-base';
 
 import { reactRules } from './rules/react.mjs';

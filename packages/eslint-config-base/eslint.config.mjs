@@ -21,7 +21,7 @@ export default [
       sourceType: 'script',
 
       parserOptions: {
-        project: './tsconfig.sample.json',
+        project: './tsconfig.json',
         tsconfigRootDir: __dirname,
       },
     },

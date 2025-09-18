@@ -1,4 +1,5 @@
-
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 const getNamingConventionRule = ({ isTsx }) => ({
   '@typescript-eslint/naming-convention': [
     'error',
@@ -101,6 +102,7 @@ const getNamingConventionRule = ({ isTsx }) => ({
 });
 
 module.exports = {
+  // @ts-expect-error - Dynamic resolution of module path
   parser: require.resolve('@typescript-eslint/parser'),
   plugins: ['@typescript-eslint', '@stylistic'],
   rules: {
@@ -174,7 +176,7 @@ module.exports = {
     ],
     'default-param-last': 'off',
     'func-call-spacing': 'off',
-    '@stylistic/func-call-spacing': [
+    '@stylistic/function-call-spacing': [
       'error',
       'never',
     ],
